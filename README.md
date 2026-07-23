@@ -1,5 +1,5 @@
 # Solar-Panel-Defect-Detection
-## Created By: Levi K, Mukta M, Tony N, Chiamaka O  
+Created By: Levi K, Mukta M, Tony N, Chiamaka O  
 ## Research Question:  
 "Can convolutional neural networks (CNNs) accurately classify environmental degradation in solar panel images, such snow cover, dust layers, cracking, or discoloration, to support automated maintenance detection?"  
 
