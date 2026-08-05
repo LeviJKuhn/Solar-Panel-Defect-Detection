@@ -30,6 +30,6 @@ Expand the dataset with additional solar panel defect images
 Compare to additional CNN architectures
 
 ### Features to consider
-Add severity impact estimation
-Detect multiple defects in one image
-Deploy the model for real-time inspection
+Add severity impact estimation  
+Detect multiple defects in one image  
+Deploy the model for real-time inspection  
