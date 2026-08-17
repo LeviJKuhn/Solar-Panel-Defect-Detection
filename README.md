@@ -1,4 +1,4 @@
-# Solar Panel Defect Detection with Deep Learning
+# Solar Panel Defect Detection with Supervised Learning
 ### Created By: [Levi K](https://www.linkedin.com/in/levijkuhn/), Mukta M, Tony N, Chiamaka O  
 
 ## Project Overview  
