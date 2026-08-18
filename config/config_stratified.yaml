@@ -1,0 +1,30 @@
+data:
+  kaggle_dataset: "pythonafroz/solar-panel-images"
+  data_dir: "data/Faulty_solar_panel"
+  image_size: 224
+  batch_size: 25
+  train_split: 0.8
+  stratified: true       # <- the only difference from config.yaml
+  seed: 42
+  class_names:
+    - Bird-drop
+    - Clean
+    - Dusty
+    - Electrical-damage
+    - Physical-Damage
+    - Snow-Covered
+  normalize_mean: [0.485, 0.456, 0.406]
+  normalize_std: [0.229, 0.224, 0.225]
+
+model:
+  architecture: resnet18
+  num_classes: 6
+
+train:
+  epochs: 10
+  learning_rate: 0.001
+
+output:
+  # Separate paths so this run doesn't overwrite the random-split results
+  model_path: "models/fine_tuned_model_stratified.pth"
+  figures_dir: "outputs/figures/stratified"

@@ -1,0 +1,24 @@
+# Data (regenerate via scripts/download_data.py)
+data/*
+!data/.gitkeep
+
+# Model weights (use Git LFS if you want to track these)
+models/*.pth
+!models/.gitkeep
+
+# Generated outputs
+outputs/figures/*
+!outputs/figures/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Secrets
+.env
+
+# OS/editor
+.DS_Store
+.ipynb_checkpoints/
