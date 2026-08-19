@@ -1,3 +1,6 @@
+[Overview](#Solar-Panel-Defect-Detection-with-Supervised-Learning)  
+[Usage](#Implementation)  
+
 # Solar Panel Defect Detection with Supervised Learning
 ### Created By: [Levi K](https://www.linkedin.com/in/levijkuhn/), Mukta M, Tony N, Chiamaka O  
 
@@ -40,3 +43,88 @@ Compare to additional CNN architectures
 Add severity impact estimation  
 Detect multiple defects in one image  
 Deploy the model for real-time inspection  
+
+
+
+
+# Implementation
+## Repository Structure
+
+```
+Solar-Panel-Defect-Detection/
+├── data/               Solar panel images, organized by class (gitignored)
+├── src/                Reusable modules (data loading, model, training, evaluation, GradCAM)
+├── scripts/            Entry points: download_data.py, train.py, predict.py
+├── notebooks/          EDA and model comparison notebook
+├── config/             Hyperparameters in YAML
+├── models/             Saved model weights (gitignored)
+├── outputs/            Figures, metrics, logs
+├── app/                Streamlit demo app
+│   └── app.py
+├── requirements.txt    Pinned versions of packages
+├── .gitignore
+└── README.md           Setup, usage, results (this file)
+```
+
+**Why this layout?**
+
+| Folder | Purpose |
+|---|---|
+| `data/` | Keep data out of version control. The dataset is downloaded from Kaggle by `scripts/download_data.py` rather than committed. |
+| `src/` | Code you import. Data loading, the model definition, the training loop, evaluation, and GradCAM all live here so scripts, the app, and the notebook share one implementation. |
+| `scripts/` | Code you run. Thin entry points that wire together modules from `src/` using settings from `config/`. |
+| `notebooks/` | Code you explore with. Class distributions, sample images, model comparisons, and GradCAM visualizations. |
+| `config/` | No magic numbers buried in code. Learning rate, epochs, batch size, image size, and class names all live in `config.yaml`. |
+| `models/` | Trained weights. The fine-tuned ResNet-18 is ~45MB, under GitHub's 100MB limit, but is gitignored here since it is reproducible from `scripts/train.py`. |
+| `outputs/` | Everything your runs produce: the confusion matrix figure and any other metrics or logs. |
+| `app/` | A lightweight Streamlit demo — upload a solar panel image and get a predicted fault class with confidence scores. |
+
+## Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/LeviJKuhn/Solar-Panel-Defect-Detection.git
+cd Solar-Panel-Defect-Detection
+
+# 2. Create and activate a virtual environment
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# macOS / Linux:
+source .venv/bin/activate
+
+# 3. Install pinned dependencies
+pip install -r requirements.txt
+```
+
+## Usage
+
+**Download the dataset** (pulls the Kaggle solar panel image dataset into `data/`):
+
+```bash
+python scripts/download_data.py
+```
+
+**Train a model** (reads hyperparameters from `config/config.yaml`, saves the model to `models/` and the confusion matrix to `outputs/figures/`):
+
+```bash
+python scripts/train.py
+```
+
+**Predict on a new image** (or a folder of images):
+
+```bash
+python scripts/predict.py --input data/Faulty_solar_panel/Dusty/example.jpg
+```
+
+**Launch the demo app**:
+
+```bash
+streamlit run app/app.py
+```
+
+**Explore the data and model comparisons**:
+
+```bash
+jupyter lab notebooks/01_eda_and_comparisons.ipynb
+```
