@@ -8,19 +8,26 @@ This project uses transfer learning on a ResNet-18 model to classify solar panel
 "Can convolutional neural networks (CNNs) accurately classify environmental degradation in solar panel images, such as snow cover, dust layers, cracking, or discoloration, to support automated maintenance detection?"  
 
 ## Algorithm     
-Using an existing computer vision model, ResNet18, we performed a transferred learning technique to fine-tune its ability to recognize solar panels and the associated defects.  
+Using an existing computer vision model, ResNet18, we performed a transferred learning technique to fine-tune its ability to recognize solar panels and the associated defects by replacing its classification head. 
 
 ## Model Evaluation  
-<img width="992" height="402" alt="image" src="https://github.com/user-attachments/assets/d66ed422-65c7-4e3b-bbfc-bf91cbb282ee" />
+This is one sample training of our stratified sampling model with its accuracy sorted by categories. 
+<p align="center">
+   <img width="700" alt="Per-class test accuracy" src="https://github.com/user-attachments/assets/e7b45e4a-4f1f-45c1-a83d-ddc5ddc398be"/>
+   <br>
+     <em>Per-class test accuracy. Physical-Damage is both the weakest and smallest class — with only 14 test images, five errors move the estimate by over 35       percentage points, so this figure is far less precise than the others.</em>
+</p>
 
 
 ## Impact and Bias  
-Grad-CAM helps to ensure that the model’s predictions are off the panel’s surface rather on the other elements in the image.
+Grad-CAM helps to ensure that the model’s predictions are based on the panel’s surface rather on the other elements in the image.
 Stratified Sampling helps ensure that the categories within the minority are present in every training epoch.
 
 ## Documentation   
 This project fine-tunes a ResNet-18 model pretrained on ImageNet, obtained via torchvision.models.  
-Solar panel imagery is from the [Solar Panel Images dataset](https://www.kaggle.com/datasets/pythonafroz/solar-panel-images) by pythonafroz.
+Solar panel imagery is from the [Solar Panel Images](https://www.kaggle.com/datasets/pythonafroz/solar-panel-images) dataset by pythonafroz.  
+GitHub Repository Template forked from [Here](https://github.com/amish-github/ml-project.git)  
+GitHub Repository Page Template forked from [Here](https://github.com/AI4ALL-Official/ai4all-official.github.io.git)  
 
 ## Next Steps  
 ### Improving the Model  
